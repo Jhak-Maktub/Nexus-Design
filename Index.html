@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de design gráfico futurista especializado em UI/UX. Criação de experiências digitais imersivas.">
+    <meta name="keywords" content="design gráfico, UI/UX, design futurista, portfólio, Google Sites">
+    <meta name="author" content="Nexus Design">
+    <title>Nexus Design | Portfólio Futurista</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== RESET & VARIÁVEIS ===== */
+        :root {
+            --primary: #0a0a1a;
+            --secondary: #1a1a2e;
+            --accent: #00eeff;
+            --accent-glow: rgba(0, 238, 255, 0.7);
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0d0;
+            --card-bg: rgba(30, 30, 60, 0.7);
+            --border-color: rgba(0, 238, 255, 0.3);
+            --google-blue: #4285F4;
+            --google-green: #34A853;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --radius: 15px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 40, 80, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(120, 0, 200, 0.1) 0%, transparent 20%);
+        }
+
+        /* ===== LAYOUT ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        /* ===== HEADER CORRIGIDO ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 10, 26, 0.85);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-line1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .logo-line2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-top: 2px;
+        }
+
+        /* MENU DE NAVEGAÇÃO DESKTOP */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            margin: 0 30px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* BOTÃO "VAMOS CONVERSAR" NO DESKTOP */
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* MENU MOBILE - APENAS UMA VERSÃO */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary);
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-nav-link:hover,
+        .mobile-nav-link.active {
+            color: var(--accent);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 2px solid var(--accent);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(0, 238, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .btn-google {
+            background: linear-gradient(135deg, var(--google-blue), var(--google-green));
+            color: white;
+            border: 2px solid transparent;
+        }
+
+        .btn-google:hover {
+            box-shadow: 0 0 25px rgba(66, 133, 244, 0.5);
+            transform: translateY(-5px);
+        }
+
+        /* ===== PROJETOS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--border-color);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-category {
+            display: inline-block;
+            background-color: rgba(0, 238, 255, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        /* ===== GOOGLE SITES ===== */
+        .google-sites-section {
+            background: rgba(30, 30, 60, 0.3);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-top: 40px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .sites-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .site-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .site-card:hover {
+            border-color: var(--google-blue);
+            transform: translateY(-10px);
+        }
+
+        /* ===== HABILIDADES ===== */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            border-color: var(--border-color);
+        }
+
+        .skill-bar {
+            height: 8px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--accent);
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+            width: 0;
+        }
+
+        /* ===== SOBRE ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== CONTATO ===== */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(0, 238, 255, 0.2);
+        }
+
+        /* ===== RODAPÉ ===== */
+        footer {
+            background-color: var(--secondary);
+            padding: 60px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* ===== ANIMAÇÕES ===== */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid, .sites-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .logo-text {
+                display: none;
+            }
+            
+            .google-sites-section {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header com navegação única -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <button class="logo" id="logoHome">
+                    <i class="fas fa-cube"></i>
+                    <div class="logo-text">
+                        <div class="logo-line1">NEXUS</div>
+                        <div class="logo-line2">DESIGN</div>
+                    </div>
+                </button>
+                
+                <!-- Menu Desktop -->
+                <div class="nav-links">
+                    <button class="nav-link active" data-section="home">Início</button>
+                    <button class="nav-link" data-section="projects">Projetos</button>
+                    <button class="nav-link" data-section="skills">Habilidades</button>
+                    <button class="nav-link" data-section="about">Sobre</button>
+                    <button class="nav-link" data-section="contact">Contato</button>
+                </div>
+                
+                <button class="nav-cta" data-section="contact">Vamos Conversar</button>
+                
+                <!-- Botão Menu Mobile -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Menu Mobile (apenas uma versão) -->
+        <div class="mobile-menu" id="mobileMenu">
+            <button class="mobile-nav-link active" data-section="home">Início</button>
+            <button class="mobile-nav-link" data-section="projects">Projetos</button>
+            <button class="mobile-nav-link" data-section="skills">Habilidades</button>
+            <button class="mobile-nav-link" data-section="about">Sobre</button>
+            <button class="mobile-nav-link" data-section="contact">Contato</button>
+            <button class="btn btn-primary mobile-nav-cta" data-section="contact" style="margin-top: 15px;">Vamos Conversar</button>
+        </div>
+    </header>
+
+    <!-- Seção Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title">DESIGN QUE <span class="typewriter">INSPIRA</span> O FUTURO</h1>
+                <p class="hero-subtitle">Sou um designer gráfico especializado em UI/UX futurista, criando experiências digitais imersivas que transcendem expectativas e elevam marcas ao próximo nível.</p>
+                
+                <div class="hero-btns">
+                    <button class="btn btn-primary" data-section="projects">Ver Projetos</button>
+                    <button class="btn btn-google" data-section="google-sites">
+                        <i class="fab fa-google"></i> Ver Google Sites
+                    </button>
+                    <button class="btn btn-secondary" data-section="contact">Contratar Serviços</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">PROJETOS DESTAQUE</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Dashboard financeiro" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">UI/UX Design</span>
+                        <h3 class="project-title">Nexus Finance Dashboard</h3>
+                        <p class="project-description">Interface futurista para dashboard financeiro com visualização de dados em tempo real.</p>
+                        <button class="btn btn-secondary" data-site-name="Nexus Finance Dashboard" data-site-url="https://sites.google.com/view/nexus-finance-dashboard">
+                            <i class="fab fa-google"></i> Ver no Google Sites
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Identidade visual" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Identidade Visual</span>
+                        <h3 class="project-title">Quantum Brand System</h3>
+                        <p class="project-description">Sistema de identidade visual completo para startup de tecnologia quântica.</p>
+                        <button class="btn btn-secondary" data-site-name="Quantum Brand System" data-site-url="https://sites.google.com/view/quantum-brand-system">
+                            <i class="fab fa-google"></i> Ver no Google Sites
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="project-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Realidade aumentada" class="project-img">
+                    <div class="project-content">
+                        <span class="project-category">Realidade Aumentada</span>
+                        <h3 class="project-title">AR Experience App</h3>
+                        <p class="project-description">Aplicativo de realidade aumentada para exposição de arte digital.</p>
+                        <button class="btn btn-secondary" data-site-name="AR Experience App" data-site-url="https://sites.google.com/view/ar-experience-app">
+                            <i class="fab fa-google"></i> Ver no Google Sites
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Google Sites -->
+    <section id="google-sites" class="section">
+        <div class="container">
+            <h2 class="section-title">MEUS GOOGLE SITES</h2>
+            
+            <div class="google-sites-section fade-in">
+                <h3 style="font-size: 2rem; margin-bottom: 20px; color: var(--accent);">Portfólios e Projetos Online</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    Todos os meus principais trabalhos estão hospedados no Google Sites para fácil acesso e compartilhamento.
+                </p>
+                
+                <div class="sites-container">
+                    <div class="site-card">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--google-blue), var(--google-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.8rem; color: white; margin-left: auto; margin-right: auto;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 10px;">Dashboard Financeiro</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Interface completa de dashboard para análise financeira.</p>
+                        <button class="btn btn-secondary" data-site-name="Dashboard Financeiro" data-site-url="https://sites.google.com/view/nexus-finance-dashboard">
+                            <i class="fab fa-google"></i> Acessar Site
+                        </button>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--google-blue), var(--google-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.8rem; color: white; margin-left: auto; margin-right: auto;">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 10px;">Sistema de Branding</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Projeto completo de identidade visual.</p>
+                        <button class="btn btn-secondary" data-site-name="Sistema de Branding" data-site-url="https://sites.google.com/view/quantum-brand-system">
+                            <i class="fab fa-google"></i> Acessar Site
+                        </button>
+                    </div>
+                    
+                    <div class="site-card">
+                        <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--google-blue), var(--google-green)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 1.8rem; color: white; margin-left: auto; margin-right: auto;">
+                            <i class="fas fa-vr-cardboard"></i>
+                        </div>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 10px;">Experiência AR</h4>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Aplicativo de realidade aumentada para arte digital.</p>
+                        <button class="btn btn-secondary" data-site-name="Experiência AR" data-site-url="https://sites.google.com/view/ar-experience-app">
+                            <i class="fab fa-google"></i> Acessar Site
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Habilidades -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">HABILIDADES ESPECIALIZADAS</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category fade-in">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-palette"></i> Design Visual
+                    </h3>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>UI/UX Design</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="95"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Identidade Visual</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="90"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Motion Design</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="85"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Design 3D</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--accent); display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-code"></i> Tecnologias
+                    </h3>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Figma & Adobe XD</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="98"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Google Sites</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="95"></div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>HTML5 & CSS3</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="90"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>After Effects</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" data-level="88"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Sobre -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">SOBRE MIM</h2>
+            
+            <div class="about-content">
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                         alt="Designer profissional" class="about-img">
+                </div>
+                
+                <div class="fade-in">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent);">Designer do Futuro, Criando no Presente</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                        Com 8 anos de experiência no campo do design gráfico e UI/UX, especializei-me em criar interfaces futuristas que não apenas impressionam visualmente, mas também oferecem experiências de usuário excepcionais.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                        Utilizo o Google Sites como plataforma principal para hospedar meus portfólios e projetos, garantindo acessibilidade, performance e integração perfeita.
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 25px;">
+                        <button class="btn btn-google" data-section="google-sites">
+                            <i class="fab fa-google"></i> Ver Meus Sites
+                        </button>
+                        <button class="btn btn-primary" data-section="contact">Entrar em Contato</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contato -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">VAMOS CRIAR JUNTOS</h2>
+            
+            <div class="contact-container">
+                <div class="fade-in">
+                    <div style="display: flex; flex-direction: column; gap: 25px;">
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background-color: rgba(0, 238, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Email</h4>
+                                <p style="color: var(--text-secondary);">contato@nexusdesign.com</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background-color: rgba(0, 238, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Telefone</h4>
+                                <p style="color: var(--text-secondary);">+55 (11) 99999-9999</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div style="width: 50px; height: 50px; background-color: rgba(0, 238, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.2rem;">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 5px;">Google Sites</h4>
+                                <p style="color: var(--text-secondary);">Portfólio Principal</p>
+                                <button style="color: var(--google-blue); background: none; border: none; cursor: pointer; padding: 0;" 
+                                        data-site-name="Portfólio Principal" 
+                                        data-site-url="https://sites.google.com/view/nexus-design-portfolio">
+                                    Acessar agora
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px;">Nome</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px;">Email</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px;">Assunto</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 8px;">Mensagem</label>
+                            <textarea class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--accent); margin-bottom: 20px; cursor: pointer;" id="footerHome">
+                        <div style="display: flex; flex-direction: column; line-height: 1;">
+                            <div>NEXUS</div>
+                            <div style="font-size: 1.4rem; font-weight: 300; letter-spacing: 3px;">DESIGN</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-secondary); margin-bottom: 25px;">
+                        Criando experiências digitais futuristas que conectam marcas ao amanhã.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 25px;">Links Rápidos</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <button class="footer-link" data-section="home" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Início</button>
+                        <button class="footer-link" data-section="projects" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Projetos</button>
+                        <button class="footer-link" data-section="skills" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Habilidades</button>
+                        <button class="footer-link" data-section="about" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Sobre</button>
+                        <button class="footer-link" data-section="contact" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Contato</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="font-size: 1.2rem; margin-bottom: 25px;">Google Sites</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <button class="footer-link" data-site-name="Dashboard Financeiro" data-site-url="https://sites.google.com/view/nexus-finance-dashboard" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Dashboard Financeiro</button>
+                        <button class="footer-link" data-site-name="Sistema de Branding" data-site-url="https://sites.google.com/view/quantum-brand-system" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Sistema de Branding</button>
+                        <button class="footer-link" data-site-name="Experiência AR" data-site-url="https://sites.google.com/view/ar-experience-app" style="color: var(--text-secondary); background: none; border: none; text-align: left; cursor: pointer; padding: 0;">Experiência AR</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Nexus Design. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="googleSitesModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" style="position: absolute; top: 15px; right: 15px; background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer;">&times;</button>
+            <h3 style="font-size: 1.8rem; margin-bottom: 20px; color: var(--accent);" id="modalTitle">Abrir Google Sites</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 30px;" id="modalText">Você está prestes a abrir um site externo hospedado no Google Sites. Deseja continuar?</p>
+            <div style="display: flex; gap: 15px; justify-content: flex-end;">
+                <button class="btn btn-secondary" id="modalCancel">Cancelar</button>
+                <button class="btn btn-primary" id="modalConfirm">Abrir Site</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== INICIALIZAÇÃO =====
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== VARIÁVEIS =====
+            const sections = {
+                'home': document.getElementById('home'),
+                'projects': document.getElementById('projects'),
+                'google-sites': document.getElementById('google-sites'),
+                'skills': document.getElementById('skills'),
+                'about': document.getElementById('about'),
+                'contact': document.getElementById('contact')
+            };
+            
+            const header = document.getElementById('header');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const modal = document.getElementById('googleSitesModal');
+            const modalClose = document.getElementById('modalClose');
+            const modalCancel = document.getElementById('modalCancel');
+            const modalConfirm = document.getElementById('modalConfirm');
+            const contactForm = document.getElementById('contactForm');
+            
+            let currentGoogleSiteUrl = '';
+            let currentGoogleSiteName = '';
+            let isMobileMenuOpen = false;
+            
+            // ===== NAVEGAÇÃO =====
+            function scrollToSection(sectionId) {
+                if (sections[sectionId]) {
+                    const section = sections[sectionId];
+                    const offsetTop = section.offsetTop - 80;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    updateActiveNavLink(sectionId);
+                    closeMobileMenu();
+                }
+            }
+            
+            function updateActiveNavLink(activeSection) {
+                // Atualizar navegação desktop
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    if (link.getAttribute('data-section') === activeSection) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                
+                // Atualizar navegação mobile
+                document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                    if (link.getAttribute('data-section') === activeSection) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            // ===== MENU MOBILE =====
+            function toggleMobileMenu() {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                mobileMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = isMobileMenuOpen ? 
+                    '<i class="fas fa-times"></i>' : 
+                    '<i class="fas fa-bars"></i>';
+            }
+            
+            function closeMobileMenu() {
+                isMobileMenuOpen = false;
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+            
+            // ===== MODAL GOOGLE SITES =====
+            function openGoogleSiteModal(event) {
+                event.preventDefault();
+                
+                currentGoogleSiteUrl = this.getAttribute('data-site-url');
+                currentGoogleSiteName = this.getAttribute('data-site-name') || 'Google Site';
+                
+                document.getElementById('modalTitle').textContent = `Abrir ${currentGoogleSiteName}`;
+                document.getElementById('modalText').textContent = 
+                    `Você está prestes a abrir "${currentGoogleSiteName}" hospedado no Google Sites em uma nova janela. Deseja continuar?`;
+                
+                modal.style.display = 'flex';
+            }
+            
+            function closeModal() {
+                modal.style.display = 'none';
+                currentGoogleSiteUrl = '';
+                currentGoogleSiteName = '';
+            }
+            
+            function confirmOpenGoogleSite() {
+                if (currentGoogleSiteUrl) {
+                    window.open(currentGoogleSiteUrl, '_blank', 'noopener,noreferrer');
+                    closeModal();
+                }
+            }
+            
+            // ===== ANIMAÇÕES =====
+            function animateSkills() {
+                const skillLevels = document.querySelectorAll('.skill-level');
+                skillLevels.forEach(skill => {
+                    const level = skill.getAttribute('data-level');
+                    skill.style.width = `${level}%`;
+                });
+            }
+            
+            function initTypewriter() {
+                const typewriterElement = document.querySelector('.typewriter');
+                if (typewriterElement) {
+                    const texts = ['INSPIRA', 'CONECTA', 'INOVA', 'TRANSFORMA'];
+                    let currentIndex = 0;
+                    
+                    function updateText() {
+                        typewriterElement.textContent = texts[currentIndex];
+                        typewriterElement.style.animation = 'none';
+                        void typewriterElement.offsetWidth;
+                        typewriterElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+                        
+                        currentIndex = (currentIndex + 1) % texts.length;
+                        setTimeout(updateText, 4000);
+                    }
+                    
+                    updateText();
+                }
+            }
+            
+            function initScrollAnimations() {
+                const fadeElements = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                fadeElements.forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    observer.observe(el);
+                });
+            }
+            
+            // ===== EVENT LISTENERS =====
+            // Navegação
+            document.querySelectorAll('[data-section]').forEach(element => {
+                element.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    scrollToSection(sectionId);
+                });
+            });
+            
+            // Links para home
+            document.getElementById('logoHome').addEventListener('click', () => scrollToSection('home'));
+            document.getElementById('footerHome').addEventListener('click', () => scrollToSection('home'));
+            
+            // Menu mobile
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            
+            // Modal Google Sites
+            document.querySelectorAll('[data-site-url]').forEach(button => {
+                button.addEventListener('click', openGoogleSiteModal);
+            });
+            
+            modalClose.addEventListener('click', closeModal);
+            modalCancel.addEventListener('click', closeModal);
+            modalConfirm.addEventListener('click', confirmOpenGoogleSite);
+            
+            // Fechar modal ao clicar fora
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Formulário
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                
+                submitBtn.textContent = "Enviando...";
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert("Mensagem enviada com sucesso! Entrarei em contato em breve.");
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1500);
+            });
+            
+            // Scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.padding = '10px 0';
+                    header.style.backdropFilter = 'blur(15px)';
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.backdropFilter = 'blur(10px)';
+                }
+            });
+            
+            // ===== INICIALIZAÇÃO =====
+            animateSkills();
+            initTypewriter();
+            initScrollAnimations();
+            updateActiveNavLink('home');
+            
+            console.log('✅ Nexus Design Portfolio carregado com sucesso!');
+        });
+    </script>
+</body>
+</html>
